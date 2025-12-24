@@ -53,7 +53,7 @@ set(TINYOBJLOADER_LIBRARY_DIR ${CMAKE_INSTALL_LIBDIR})
 set(TINYOBJLOADER_PKGCONFIG_DIR ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
 set(TINYOBJLOADER_RUNTIME_DIR ${CMAKE_INSTALL_BINDIR})
 
-option(TINYOBJLOADER_BUILD_TEST_LOADER "Build Example Loader Application" OFF)
+option(TINYOBJLOADER_BUILD_TEST_LOADER "Build Example Loader Application" ON)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -109,13 +109,23 @@ export(TARGETS ${LIBRARY_NAME} FILE ${PROJECT_NAME}-targets.cmake)
 if(TINYOBJLOADER_BUILD_TEST_LOADER)
   add_executable(test_loader ${tinyobjloader-Example-Source})
   target_link_libraries(test_loader ${LIBRARY_NAME})
+  set_target_properties(test_loader PROPERTIES
+    FOLDER "loader_example"
+  )
+  add_custom_command(TARGET test_loader POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/models/catmark_torus_creases0.obj
+        $<TARGET_FILE_DIR:test_loader>/models/catmark_torus_creases0.obj
+  )
 endif()
 
-option(TINYOBJLOADER_BUILD_OBJ_STICHER "Build OBJ Sticher Application" OFF)
+option(TINYOBJLOADER_BUILD_OBJ_STICHER "Build OBJ Sticher Application" ON)
 if(TINYOBJLOADER_BUILD_OBJ_STICHER)
   add_executable(obj_sticher ${tinyobjloader-examples-objsticher})
   target_link_libraries(obj_sticher ${LIBRARY_NAME})
-
+  set_target_properties(obj_sticher PROPERTIES
+    FOLDER "examples"
+  )
   install(TARGETS
     obj_sticher
     DESTINATION
@@ -218,4 +228,30 @@ if(NOT TARGET uninstall)
   add_custom_target(
     uninstall COMMAND ${CMAKE_COMMAND} -P
                       ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
+endif()
+
+if(false)
+option(BUILD_EXAMPLES "Build the examples." ON)
+option(BUILD_TESTS "Build the tests." OFF)
+option(BUILD_EXPERIMENTAL "Build experimental code." ON)
+option(BUILD_FUZZER "Build fuzzer." OFF)
+option(BUILD_PYTHON "Build Python module." OFF)
+
+set(MODELS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/models CACHE PATH "Directory containing test models")
+if(BUILD_EXAMPLES)
+  add_subdirectory(examples)
+endif()
+if(BUILD_TESTS)
+  enable_testing()
+  add_subdirectory(tests)
+endif()
+if(BUILD_EXPERIMENTAL)
+  add_subdirectory(experimental)
+endif()
+if(BUILD_FUZZER)
+  add_subdirectory(fuzzer)
+endif()
+if(BUILD_PYTHON)
+  add_subdirectory(python)
+endif()
 endif()
