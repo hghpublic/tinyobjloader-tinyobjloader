@@ -1,0 +1,95 @@
+= Issues
+
+
+== bulding experimental view app with C++20/26 fails due to deprecated allocator members
+
+When building the experimental view app with C++20 or C++26, the build fails due to the use of deprecated allocator members in `tinyobj_loader_opt.h`.
+
+C++17 Feature Removals And Deprecations::
+https://devblogs.microsoft.com/cppblog/c17-feature-removals-and-deprecations/
+
+Visual Studio warning macros for C++17 deprecated features::
+https://mariusbancila.ro/blog/2018/07/09/visual-studio-warning-macros-for-c17-deprecated-features/
+
+Remove use of deprecated allocator members and types
+
+----
+_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS
+_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING
+----
+
+. https://cppreference.com/w/cpp/named_req/Allocator.html
+. https://cppreference.com/w/cpp/memory/allocator_traits.html
+
+----
+[main] Building folder: /workspaces/tinyobjloader-tinyobjloader/build view
+[build] Starting build
+[proc] Executing command: /usr/local/bin/cmake --build /workspaces/tinyobjloader-tinyobjloader/build --config Debug --target view --
+[build] [2/3  33% :: 0.131] Building CXX object experimental/CMakeFiles/view.dir/trackball.cc.o
+[build] [2/3  66% :: 1.010] Building CXX object experimental/CMakeFiles/view.dir/viewer.cc.o
+[build] FAILED: experimental/CMakeFiles/view.dir/viewer.cc.o 
+[build] /usr/bin/aarch64-linux-gnu-g++-14 -DGLEW_STATIC -I/workspaces/tinyobjloader-tinyobjloader/experimental -isystem /workspaces/tinyobjloader-tinyobjloader/build/vcpkg_installed/arm64-linux/include -g -std=c++26 -MD -MT experimental/CMakeFiles/view.dir/viewer.cc.o -MF experimental/CMakeFiles/view.dir/viewer.cc.o.d -o experimental/CMakeFiles/view.dir/viewer.cc.o -c /workspaces/tinyobjloader-tinyobjloader/experimental/viewer.cc
+[build] In file included from /workspaces/tinyobjloader-tinyobjloader/experimental/viewer.cc:36:
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h: In instantiation of 'class tinyobj_opt::StackAllocator<char, 256>':
+[build] /usr/include/c++/14/bits/stl_vector.h:87:21:   required from 'struct std::_Vector_base<char, tinyobj_opt::StackAllocator<char, 256> >'
+[build]    87 |         rebind<_Tp>::other _Tp_alloc_type;
+[build]       |                            ^~~~~~~~~~~~~~
+[build] /usr/include/c++/14/bits/stl_vector.h:428:11:   required from 'class std::vector<char, tinyobj_opt::StackAllocator<char, 256> >'
+[build]   428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+[build]       |           ^~~~~~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h:188:46:   required from 'class tinyobj_opt::StackContainer<std::vector<char, tinyobj_opt::StackAllocator<char, 256> >, 256>'
+[build]   188 |   typedef typename ContainerType::value_type ContainedType;
+[build]       |                                              ^~~~~~~~~~~~~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h:237:7:   required from 'class tinyobj_opt::StackVector<char, 256>'
+[build]   237 | class StackVector
+[build]       |       ^~~~~~~~~~~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h:464:7:   required from here
+[build]   464 |   (*s)->insert((*s)->end(), (*token), (*token) + e);
+[build]       |       ^~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h:91:47: error: no type named 'pointer' in 'class std::allocator<char>'
+[build]    91 |   typedef typename std::allocator<T>::pointer pointer;
+[build]       |                                               ^~~~~~~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h: In instantiation of 'class tinyobj_opt::StackAllocator<tinyobj_opt::index_t, 8>':
+[build] /usr/include/c++/14/bits/stl_vector.h:87:21:   required from 'struct std::_Vector_base<tinyobj_opt::index_t, tinyobj_opt::StackAllocator<tinyobj_opt::index_t, 8> >'
+[build]    87 |         rebind<_Tp>::other _Tp_alloc_type;
+[build]       |                            ^~~~~~~~~~~~~~
+[build] /usr/include/c++/14/bits/stl_vector.h:428:11:   required from 'class std::vector<tinyobj_opt::index_t, tinyobj_opt::StackAllocator<tinyobj_opt::index_t, 8> >'
+[build]   428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+[build]       |           ^~~~~~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h:188:46:   required from 'class tinyobj_opt::StackContainer<std::vector<tinyobj_opt::index_t, tinyobj_opt::StackAllocator<tinyobj_opt::index_t, 8> >, 8>'
+[build]   188 |   typedef typename ContainerType::value_type ContainedType;
+[build]       |                                              ^~~~~~~~~~~~~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h:237:7:   required from 'class tinyobj_opt::StackVector<tinyobj_opt::index_t, 8>'
+[build]   237 | class StackVector
+[build]       |       ^~~~~~~~~~~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h:1124:29:   required from here
+[build]  1124 |     StackVector<index_t, 8> f;
+[build]       |                             ^
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h:91:47: error: no type named 'pointer' in 'class std::allocator<tinyobj_opt::index_t>'
+[build]    91 |   typedef typename std::allocator<T>::pointer pointer;
+[build]       |                                               ^~~~~~~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h: In instantiation of 'class tinyobj_opt::StackAllocator<std::thread, 16>':
+[build] /usr/include/c++/14/bits/stl_vector.h:87:21:   required from 'struct std::_Vector_base<std::thread, tinyobj_opt::StackAllocator<std::thread, 16> >'
+[build]    87 |         rebind<_Tp>::other _Tp_alloc_type;
+[build]       |                            ^~~~~~~~~~~~~~
+[build] /usr/include/c++/14/bits/stl_vector.h:428:11:   required from 'class std::vector<std::thread, tinyobj_opt::StackAllocator<std::thread, 16> >'
+[build]   428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+[build]       |           ^~~~~~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h:188:46:   required from 'class tinyobj_opt::StackContainer<std::vector<std::thread, tinyobj_opt::StackAllocator<std::thread, 16> >, 16>'
+[build]   188 |   typedef typename ContainerType::value_type ContainedType;
+[build]       |                                              ^~~~~~~~~~~~~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h:237:7:   required from 'class tinyobj_opt::StackVector<std::thread, 16>'
+[build]   237 | class StackVector
+[build]       |       ^~~~~~~~~~~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h:1299:34:   required from here
+[build]  1299 |     StackVector<std::thread, 16> workers;
+[build]       |                                  ^~~~~~~
+[build] /workspaces/tinyobjloader-tinyobjloader/experimental/tinyobj_loader_opt.h:91:47: error: no type named 'pointer' in 'class std::allocator<std::thread>'
+[build]    91 |   typedef typename std::allocator<T>::pointer pointer;
+[build]       |                                               ^~~~~~~
+[build] ninja: build stopped: subcommand failed.
+[proc] The command: /usr/local/bin/cmake --build /workspaces/tinyobjloader-tinyobjloader/build --config Debug --target view -- exited with code: 1
+[driver] Build completed: 00:00:01.025
+[build] Build finished with exit code 1
+
+----

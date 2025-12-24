@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0068)https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>Wavefront OBJ File Format</title>
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="description" content="Format Description for OBJ -- an ASCII-based format for defining the 3D geometry for the surface of one or more objects.  First used by Wavefront Technologies around 1990. Soon after, a specification was published to encourage interoperability.  In 2020, it is the preferred format for multi-color 3D printing.">
+		<meta name="dc.type" content="web page">
+		<meta name="dc.rights" content="Text is U.S. government work">
+		<meta name="dc.subject" content="format sustainability">
+		<meta name="dc.subject" content="digital formats">
+		<meta name="dc.subject" content="3D model formats">
+		<meta name="dc.subject" content="model formats">
+		<meta name="dc.subject" content="file-format">
+		<meta name="dc.subject" content="encoding formats">
+		<meta name="dc.date" content="2025-02-18">
+		<meta name="dc.language" content="eng">
+		<link href="https://www.loc.gov/preservation/digital/formats/" rel="dc.relation.isPartOf" title="Format Sustainability">
+		<meta name="keywords" content="3D model formats">
+		<link rel="stylesheet" type="text/css" href="./index_files/deog.css" media="screen">
+	<script src="./index_files/satelliteLib-6b47f831c184878d7338d4683ecf773a17973bb9.js"></script><script src="./index_files/AppMeasurement.min.js" async=""></script><script src="./index_files/AppMeasurement_Module_ActivityMap.min.js" async=""></script>
+</head>
+	<body><!--This HTML FDD was generated using an XSLT transformation from an XML master FDD instance, based on version 1.1 of the FDD schema.-->
+<!-- begin page header -->
+
+
+	<table cellpadding="3" cellspacing="0" border="0" width="100%" class="header-bg">
+        <tbody><tr valign="top">
+          <td class="header">&nbsp;</td>
+          <td align="right"> 
+            <div align="right" class="header"><a href="https://www.loc.gov/preservation/digital/index.html">Digital Preservation Home</a> | <a href="https://www.loc.gov/preservation/digital/formats/index.html">Digital Formats Home</a> &nbsp;&nbsp;&nbsp;</div>
+          </td>
+        </tr>
+     </tbody></table>
+	 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="title-bg">
+	<tbody><tr>
+      <td class="title-bg" align="left" valign="middle">
+<h1>&nbsp;<a href="https://www.loc.gov/preservation/digital/formats/index.html">Sustainability of Digital Formats: Planning for Library of Congress Collections</a></h1>
+</td>
+
+<td align="right" class="form">
+<form action="https://www.loc.gov/search/" method="get" id="site_search" class="form">
+<input id="searchtext" name="q" type="text" class="formtext" value=" Search this site" onfocus="this.value=&#39;&#39;">
+<input name="fa" value="subject:format sustainability" type="hidden">
+
+<input type="Submit" value="Go" hspace="0" class="go">
+</form>
+
+</td>
+ </tr>
+		
+        <tr> 
+          <td colspan="2" class="empty-space-format"><img src="./index_files/horzgif.gif" alt="" width="100%" height="2"></td>
+        </tr>
+		<tr>
+    <td colspan="2" class="formatNav"><a href="https://www.loc.gov/preservation/digital/formats/intro/intro.shtml">Introduction</a> | <a href="https://www.loc.gov/preservation/digital/formats/sustain/sustain.shtml">Sustainability Factors</a> | <a href="https://www.loc.gov/preservation/digital/formats/content/content_categories.shtml">Content Categories</a> | 
+	<a href="https://www.loc.gov/preservation/digital/formats/fdd/descriptions.shtml">Format Descriptions </a> | <a href="https://www.loc.gov/preservation/digital/formats/contact_format.shtml">Contact</a></td>
+  </tr>
+<!--
+  <tr>
+    <td height="20" colspan="3" align="right" bgcolor="#ffffff"> <a href="http://www.digitalpreservation.gov/formats/phprint_formats.php" target="Print" onClick="openPWindow(); ANewWindow.focus();" class="xsmall"><img src="http://www.digitalpreservation.gov/formats/print.gif" alt="Printer-friendly version" border="0" align="middle">Printer-friendly version</a>&nbsp;&nbsp;&nbsp;</td>
+  </tr>-->
+      </tbody></table>
+		
+<!-- end page header --><!--begin body area --><!-- startprint --><div class="fdd"><a href="https://www.loc.gov/preservation/digital/formats/fdd/descriptions.shtml"><b>Format Description Categories</b></a> &gt;&gt; 
+					<a href="https://www.loc.gov/preservation/digital/formats/fdd/browse_list.shtml">Browse Alphabetical List</a><div class="sectionhead"><a name="top"></a><h2>Wavefront OBJ File Format</h2>
+			</div><a href="javascript:history.back()" class="xsmall">&gt;&gt; Back</a><div class="toc"><b>Table of Contents</b><ul>
+					<li class="first"><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#identification">Identification and description</a></li>
+					<li><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#local">Local use</a></li>
+					<li><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#sustainability">Sustainability factors</a></li>
+					<li><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#factors">Quality and functionality factors</a></li>
+					<li><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#sign">File type signifiers</a></li>
+					<li><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#notes">Notes</a></li>
+					<li><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#specs">Format specifications</a></li>
+					<li class="last"><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#useful">Useful references</a></li>
+				</ul>
+			</div><div class="document"><b>
+							Format Description Properties
+							<a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd_explanation.shtml"><img alt="Explanation of format description terms" title="Explanation of format description terms" src="./index_files/info.gif" border="0" vspace="0"></a></b><ul>
+					<li class="first">ID: fdd000507</li>
+					<li>Short name: OBJ</li>
+					<li>Content categories: 
+								model</li>
+					<li>Format Category:
+								file-format, encoding</li>
+					<li>Other facets: 
+								unitary, text, structured, symbolic</li>
+					<li>Last significant FDD update:
+								2025-02-18</li>
+					<li class="last">Draft status: Full</li>
+				</ul>
+			</div><br clear="all"><a name="identification"></a><h3>Identification and description 
+						<a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd_explanation.shtml#identification"><img alt="Explanation of format description terms" title="Explanation of format description terms" src="./index_files/info.gif" border="0" vspace="0"></a></h3><table border="1" cellspacing="0" cellpadding="2" width="90%" summary="The Identification and Description table lists the name of the format, a brief description, and relationships to other formats.">
+				<tbody>
+					<tr>
+						<th scope="row" width="30%" valign="top">Full name</th>
+						<td valign="top">Wavefront OBJ File Format</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">Description</th>
+						<td valign="top">
+							<p>The Wavefront OBJ format is a format for defining the 3D geometry for the surface of one or more objects.  The format was first used by Wavefront Technologies around 1990 and a <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://www.cs.utah.edu/~boulos/cs3505/obj_spec.pdf">specification</a> was published to encourage interoperability.  The introduction to the specification stated, "Object files define the geometry and other properties for objects in
+Wavefront’s Advanced Visualizer.  Object files can also be used to
+transfer geometric data back and forth between the Advanced
+Visualizer and other applications."  Since the mid 1990s, the ASCII-based format has been treated as a vendor-neutral format, referred to as 'Wavefront OBJ," "Alias/Wavefront OBJ," or simply "OBJ."  In 2020, the format remains widely used, particularly for 3D printing of objects in multiple colors.  Note: The original specification for the OBJ file employs an associated Wavefront Material Template Library (<a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000508.shtml">MTL</a>) file to define both colors and textures.  Textures and colors specified by name in an MTL file are invoked in the OBJ file.  See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#factors">3D Model Appearance</a> factor below.</p>
+							<p>The OBJ file format supports definition of the geometry for object surfaces using polygonal meshes or using freeform curves and surfaces.  From a logical perspective, the central concept in an OBJ model is the "element."  The specification lists the following as elements: point (<i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">p</i>), line (<i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">l</i>), face (<i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">f</i>), curve (<i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">curv</i>), 2D curve (<i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">curv2</i>), and surface (<i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">surf</i>).  Elements are constructed from vertices; the vertices must be listed first in the file, so that the elements can refer to them by number, using the order in which they occur in the file.  Elements can optionally be organized into groups for convenience or to guide rendering applications.</p>
+							<p>An OBJ file has a simple physical structure, consisting of lines that start with keywords.  Following each keyword, appropriate options and values are specified.  Lines beginning with # are comments.  Long lines can be broken up, using a backslash (\) character at the end of lines to be continued.  According to the <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.fileformat.info/format/wavefrontobj/egff.htm">Wavefront OBJ File Format Summary</a> in the Encyclopedia of Graphics File Formats, 2nd Edition, "The most commonly encountered OBJ files contain only polygonal faces. To describe a polygon, the file first describes each point [vertex] with the "v" keyword, then describes the face with the "f" keyword. The line of a face command contains the enumerations of the points in the face, as <i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">1-based indices</i> into the list of points, in the order they occurred in the file."  [Note:  A 1-based index means that the count of vertices begins at 1, rather than 0.] The description of <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://web.archive.org/web/20160324120358/https://people.cs.clemson.edu/~dhouse/courses/405/docs/brief-obj-file-format.html">Alias/WaveFront Object (.obj) File Format</a> (link via Internet Archive) provided by Donald H. House for a course in computer graphics is a useful introduction to the keywords used for polygonal meshes; these keywords are supported by most applications that claim to support the OBJ format.  Not all 3D software applications can handle freeform surfaces, which are defined using mathematical equations.  Of those that can, support may be limited to the non-uniform rational basis spline (<a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/Non-uniform_rational_B-spline">NURBS</a>) model, although the OBJ specification allows for a variety of models.</p>
+							<p>Here is a simple example of an OBJ file, for a cube, taken from the specification</p>
+							<p>v 0.000000 2.000000 2.000000<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">v 0.000000 0.000000 2.000000<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">v 2.000000 0.000000 2.000000<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">v 2.000000 2.000000 2.000000<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">v 0.000000 2.000000 0.000000<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">v 0.000000 0.000000 0.000000<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">v 2.000000 0.000000 0.000000<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">v 2.000000 2.000000 0.000000<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">f 1 2 3 4<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">f 8 7 6 5<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">f 4 3 7 8<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">f 5 1 4 8<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">f 5 6 2 1<br xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">f 2 6 7 3</p>
+							<p>Many more examples can be found at <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://people.math.sc.edu/Burkardt/data/obj/obj.html">John Burkardt's page on the OBJ format</a>, for example, for a <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://people.math.sc.edu/Burkardt/data/obj/minicooper.obj">Mini Cooper</a>.</p>
+							<p>Vertices for a polygonal model in an OBJ file can have three types of vertex data.  See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/Vertex_(computer_graphics)">Wikipedia entry for Vertex (computer graphics)</a>.</p>
+							<ul>
+								<li><b xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">v</b>: Defines the position of the vertex in three dimensions (x,y,z).  Three floating point numbers.  Required.</li>
+								<li><b xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">vn</b>: <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/Vertex_normal">Vertex normal</a>, a directional vector associated with a vertex, used to facilitate smooth shading.  Three floating point numbers.  Optional.</li>
+								<li><b xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">vt</b>: Texture coordinates, also known as <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/UV_coordinates">UV coordinates</a>.  Typically two floating point numbers (u, v).  These coordinates are used during rendering to determine how to paint the three-dimensional surface with pixels from a 2D texture map, e.g. an image in a format such as PNG.  Optional.</li>
+							</ul>
+							<p>For information on the keywords and options associated with freeform surface elements, see the <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://www.cs.utah.edu/~boulos/cs3505/obj_spec.pdf">specification</a> and <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#useful">Useful References</a> below.</p>
+							<p>OBJ files that contain only face elements and the associated vertex data are widely supported by 3D software applications, for import and for export.  Nevertheless, there can be interoperability problems associated with applying colors and textures using an associated <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000508.shtml">MTL</a> file.  An OBJ file refers to the MTL file in an <i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">mtllib</i> declaration and definitions for objects (polygonal or freeform) within the OBJ file can refer to a particular named material definition with a <i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">usemtl</i> statement.  Some applications simply do not support the MTL files.  The original Advanced Visualizer application required the MTL file to be in the same directory as the OBJ file and any texture map files also to be in the same directory.  Some applications accept paths to files in other directories and others export the component files in separate directories and users have to move them before they can be successfully employed.  Another potential source of interoperability problems with MTL files is the use of keywords not defined in the original MTL specification for proprietary use or to support new approaches for 3D rendering.  For more details, see <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000508.shtml">MTL</a>.</p>
+							<p>A convention for representing colors in an OBJ model without using an MTL file is supported by several applications.  This convention supports a technique, known as <i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">per-vertex</i> coloring, in which a color is associated with each vertex and pixels on a mesh face are colored by interpolation based on distance from the face vertices.  This approach is of particular value for certain applications.  When 3D models are derived by scanning (e.g., for a pathology specimen) or photogrammetry (e.g. for a 3D cultural heritage artifact), it is feasible to generate a single file which includes accurate color information.  Another situation where this approach is valuable is for models that use basic colors to identify parts of a design model, or convey other information using artificial colors, for example, for an anatomical model. Having a single file can simplify workflows and storage for situations where texture maps are not needed. For more detail on the convention and its support in applications, see <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#notes">Note</a> on per-vertex coloring below.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">Production phase</th>
+						<td valign="top">The OBJ format can be an initial-state format, created by a 3D scanning process.  It often serves as a middle-state format, created as output from software that supports 3D design.  An OBJ model will often be input to a 3D printing process or to more advanced 3D modeling software to include in a 3D scene or animation.  Models are often shared for re-use in the OBJ format.</td>
+					</tr>
+					<tr>
+						<th class="subhead" scope="col" colspan="2">Relationship to other formats</th>
+					</tr>
+					<tr>
+						<th scope="row" width="30%">
+					&nbsp;&nbsp;&nbsp;&nbsp;May have component</th>
+						<td><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000508.shtml">MTL</a>, 
+						Wavefront Material Template Library (MTL) File Format. An associated MTL file can define colors and texture for applying to the surface of the objects whose surface geometry is defined in the OBJ file.</td>
+					</tr>
+				</tbody>
+			</table><br><a name="local"></a><h3>Local use 
+						<a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd_explanation.shtml#local"><img alt="Explanation of format description terms" title="Explanation of format description terms" src="./index_files/info.gif" border="0" vspace="0"></a></h3><table border="1" cellspacing="0" cellpadding="2" width="90%" summary="The Local Use table lists any actual practice, historical use, or stated preference for this format at the Library of Congress.">
+				<tbody>
+					<tr>
+						<th scope="row" width="30%" valign="top">LC experience or existing holdings</th>
+						<td valign="top">The OBJ format has been used in a pilot workflow for 3D capture of artifacts from the Kislak Collection.</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">LC preference</th>
+						<td valign="top">The Library of Congress Recommended Formats Statement (RFS) includes OBJ as an acceptable format for <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/resources/rfs/design3D.html">Scanned 3D Objects (output from photogrammetry scanning)</a>.</td>
+					</tr>
+				</tbody>
+			</table><br><a name="sustainability"></a><h3>Sustainability factors
+						<a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd_explanation.shtml#sustainability"><img alt="Explanation of format description terms" title="Explanation of format description terms" src="./index_files/info.gif" border="0" vspace="0"></a></h3><table border="1" cellspacing="0" cellpadding="2" width="90%" summary="The Sustainability Factors table provides a list of notes that analyze this format in terms of factors that influence the likely feasibility and cost of preserving information against technological obsolescence.">
+				<tbody>
+					<tr>
+						<th scope="row" width="30%" valign="top">Disclosure</th>
+						<td valign="top">
+							<p>The OBJ format was developed by Wavefront Technologies around 1990 and the format was openly documented before 1995 as Appendix B1 of a manual for version 3 of the Advanced Visualizer software sold by Wavefront.  This appendix has been made available in several places on the Internet and the <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">Wikipedia entry for Wavefront .obj file</a> states, "The file format is open and has been adopted by other 3D graphics application vendors."  The originators were indeed happy to share the specification and the format is indeed supported in almost all CAD software.  However, from a legal standpoint, the specification is probably proprietary to Autodesk; see <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#notes">Notes on History</a> and <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#useful">Useful References</a> below for details on the chain of mergers and acquisitions.</p>
+							<p>Note that a binary equivalent, with a .mod extension, is mentioned in the introduction to the specification but was not documented.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;Documentation</th>
+						<td valign="top">A <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://www.cs.utah.edu/~boulos/cs3505/obj_spec.pdf">specification for the Wavefront OBJ format</a> was published in Appendix B1 of a manual for <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/The_Advanced_Visualizer">The Advanced Visualizer</a> in the early 1990s. See  <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#specs">Format Specifications</a> below for additional copies of the same appendix.</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">Adoption</th>
+						<td valign="top">
+							<p>The Wavefront OBJ format is widely used for 3D printing.  See, for example, question 40 in <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://all3dp.com/3d-printing-3d-printer-guide-101-questions/">3D Printing Guide: Basics</a> and <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://all3dp.com/3d-file-format-3d-files-3d-printer-3d-cad-vrml-stl-obj/#Top">Most Common 3D File Formats</a> from All3DP.  According to <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://all3dp.com/1/obj-file-format-3d-printing-cad/">OBJ File Format – Simply Explained for CAD and 3D Printing</a> from All3DP, OBJ has wide export and import support among CAD software and in recent years, has become "the de facto file format for multi-color 3D printing because the otherwise standard 3D printing format <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000504.shtml">STL</a> does not support color and texture information."</p>
+							<p>Most CAD/CAM and 3D design applications can import and export polygonal meshes in the OBJ format.  The compilers of this resource have not determined which widely used 3D software applications can work with freeform surfaces.  See the <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#factors">3D Model Geometry</a> factor below for more detail.</p>
+							<p>As of 2019, with 3D models in wide use for video games, online product information, 3D printing, and in archeology, medicine, and other professional disciplines, the simple, openly documented formats developed over 20 years ago, such as <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000504.shtml">STL</a>, OBJ, and <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000501.shtml">PLY</a> are supported in new contexts.  For example, recent versions of the Windows and Mac operating systems come with basic tools that can render 3D files in a small number of formats, including the OBJ format.  Windows 10 includes Paint 3D, which can open files in PLY, STL, OBJ, 3MF, FBX, and GLB (the binary variant of <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000500.shtml">glTF_2_0</a>) formats.  In April 2017, Microsoft <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://techcommunity.microsoft.com/discussions/onedriveforbusiness/announcing-new-file-viewers-available-for-onedrive-for-business/60040">announced</a> support for 3D formats (3MF, FBX, OBJ, PLY, STL) in OneDrive for Business.  The version of Preview shipped with versions of Mac OS since 10.11 (El Capitan) has also been able to render 3D models in a number of formats.  For example, Preview in Mac OS 10.14 (Mojave) supports PLY, OBJ, STL, USD (Universal Scene Description), ABC (Alembic), and possibly more.</p>
+							<p>3D modeling applications and conversion tools that can import, export, or convert OBJ files include: <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/MeshLab">MeshLab</a>, a widely used open-source software system for manipulating 3D mesh models, maintained by the Visual Computing Lab of ISTI-CNR; <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://docs.blender.org/manual/en/4.3/index.html">Blender</a>, another popular free and open-source 3D creation suite, supported by the <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.blender.org/foundation/">Blender Foundation</a>, an independent non-profit public benefit corporation, established in the Netherlands; <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://reference.wolfram.com/language/ref/format/OBJ.html">Mathematica</a>; <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.rhino3d.com/formats">Rhino</a>; <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://products.aspose.com/3d/java">Aspose.3D for Java</a>; <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://github.com/assimp/assimp">Assimp (Open Asset Import Library)</a>; <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://www.quick3d.com/features.html">quick3D</a> and <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.techsoft3d.com/products/hoops/exchange/">HOOPS Exchange SDK</a>.  Products from Autodesk that support the OBJ format include: <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://knowledge.autodesk.com/support/alias-products/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Alias-ImportingExporting/files/GUID-A1CC091A-A9C8-45DB-A3EA-2DAFE7E1A59D-htm.html">Alias</a>; <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-ManagingScenes/files/GUID-69BC066D-D4D8-4B12-900C-CF42E798A5D6-htm.html">Maya (import)</a>; <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-ManagingScenes/files/GUID-864BD203-C437-4481-8BFC-3A6C1D2C824C-htm.html">Maya (export)</a>; <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://help.autodesk.com/view/MAYALT/2019/ENU/?guid=GUID-3A6190CA-E296-4A10-9287-5AEE156DBA9D">Maya LT</a>; and <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2020/ENU/3DSMax-Data-Exchange/files/GUID-87B0A138-8348-4DCB-87EE-585841A27318-htm.html">3DS Max</a>.</p>
+							<p>Recently, GIS applications have begun to integrate 3D support.  Models in the OBJ format can be used in Esri's <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://doc.arcgis.com/en/cityengine/latest/help/help-import-obj.htm">City Engine</a> and via some extensions to ArcGIS Pro: <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.esriuk.com/en-gb/arcgis/products/arcgis-data-interoperability/supported-formats">ArcGIS Data Interoperability</a> and <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/import-3d-files.htm">3D Analyst</a>.  The Feature Manipulation Engine (<a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.safe.com/integrate/obj/">FME</a>), which is widely used with GIS products, offers support for importing or converting the OBJ format.</p>
+							<p>Examples of software tools that have been developed specifically to read and write files in the OBJ format include: <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://github.com/pywavefront/PyWavefront">PyWavefront</a> in Python; <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://threejs.org/examples/jsm/loaders/OBJLoader.js">OBJloader.js</a> in javascript, part of <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://threejs.org/">threejs</a> toolkit; and <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://github.com/dwmkerr/file-format-wavefront">file-format-wavefront</a> for .NET.</p>
+							<p>Cultural heritage institutions and archaeologists have used the Wavefront OBJ format when scanning 3D artifacts from their sites or collections.  However, many museums also use 3D formats that offer more advanced features.  For example, the British Museum offers <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://sketchfab.com/3d-models/a-queen-from-the-lewis-chessmen-af096aa7ca934f84b6d64c89a8e312d4">a queen from the Lewis chessmen</a> for download from Sketchfab in STL and OBJ, but also in glTF.  <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://sketchfab.com/museums">Sketchfab</a> is used by many museums for making 3D models available.  Wavefront OBJ is supported for uploading models to Sketchfab and is one of the preferred formats listed at <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://help.sketchfab.com/hc/en-us/articles/202508396-Supported-3D-File-Formats">Supported 3D File Formats</a>.  The <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://guides.archaeologydataservice.ac.uk/g2gp/3d_2-3">UK Archaeology Data Service</a> lists the Wavefront OBJ format in a table of "common" formats, and describes it as "suitable for preservation."</p>
+							<p>Digital Imaging and Remote Sensing Image Generation (DIRSIG) is a specialized system that can be used to test image system designs, to create test imagery for evaluating image exploitation algorithms and for creating data for training image analysts.  DIRSIG software has been developed over the course of over two decades for use by NSF, NASA, DoD and Intelligence community contractors and by universities doing research for these organizations.  In addition to a custom format, the software will read the Alias/Wavefront OBJ file format directly. Other geometry formats must be exported to the Alias OBJ format for importation into a DIRSIG scene. DIRSIG support is only for meshes with faces with three or four vertices.  See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://www.dirsig.org/docs/new/obj.html#_feature_support_in_dirsig">Alias/Wavefront OBJ File Format |Feature Support in DIRSIG</a>.  Another specialized system that uses OBJ and MTL files is the Channel Annotation Package (CHAP), a research tool for "functional annotation of novel ion channel structures that provides information on the biophysical properties of the ion permeation pathway by utilising molecular dynamics simulations." See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.channotation.org/docs/contents_objmtl_file/">Contents of the OBJ and MTL Output Files</a>.</p>
+							<p>A recent development is the approval in early 2020 by <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.dicomstandard.org/activity/wgs/wg-17">Working Group 17</a> for the Digital Imaging and Communications in Medicine (DICOM) standard, of <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://dicomstandard.org/News/ftsup/docs/sups/sup208.pdf">Supplement 208</a>: DICOM Encapsulation of OBJ Models for 3D Manufacturing and Virtual Reality.  See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.dicomstandard.org/News/current/docs/sups/sup208-slides.pdf">slides in Supplement 208</a> from 2019, and <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://dicomstandard.org/News/ftsup/index.html">DICOM Supplement Overview</a>.</p>
+							<p>Faced with interoperability problems in getting some 3D software to import the OBJ and MTL files together and yield an appropriate rendering, some users may choose a workflow that avoids the OBJ format.  For more on sources of interoperability problems, see <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000508.shtml">MTL</a>.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;Licensing and patents</th>
+						<td valign="top">
+							<p>There was no formal statement by Wavefront Technologies or by any of its succeeding corporate entities that the OBJ format may be used without a license.  However, the original publication included the informal statement, "The .obj appendix is for those who want to use the .obj format to translate geometric data from other software applications to Wavefront products. It also provides information for Advanced Visualizer users who want detailed information on the Wavefront .obj file format."  <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/contact_format.shtml">Comments welcome</a>.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">Transparency</th>
+						<td valign="top">
+							<p>The OBJ format is in plain text, and thus easy to view with basic editing tools. Use of freeform curves and surfaces rather than polygonal facets will yield statements that may be hard to interpret without an understanding of the mathematics that enables efficient representation and rendering of free-form surface patches.  See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#useful">Useful References</a> below.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">Self-documentation</th>
+						<td valign="top">
+							<p>There is no support for embedding structured metadata in an OBJ file.  Comments, indicated by lines with a leading # character, can be included anywhere in the file.</p>
+							<p><b xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Accessibility Features</b></p>
+							<p>Accessibility features for 3D model formats include audio descriptions for screen readers to enable user interactivity events such as object selection, rotation and zoom, alt text for image forms, color contrast definition as well as caption and subtitle support.</p>
+							<p>OBJ has limited direct support, however, other than data stored as plain text which makes it more available to translate for screen readers. Some additional functionality may be supported with software implementation. </p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">External dependencies</th>
+						<td valign="top">For full rendering with color and textures as intended, an OBJ file may need one or more associated Material Template Library (<a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000508.shtml">MTL</a>) files and supplementary texture files.</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">Technical protection considerations</th>
+						<td valign="top">The OBJ format has no internal capabilities for encryption or other technical protection.</td>
+					</tr>
+				</tbody>
+			</table><br><a name="factors"></a><h3>Quality and functionality factors
+						<a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd_explanation.shtml#factors"><img alt="Explanation of format description terms" title="Explanation of format description terms" src="./index_files/info.gif" border="0" vspace="0"></a></h3><table border="1" cellspacing="0" cellpadding="2" width="90%" summary="The Quality and Functionality Factors table assesses the format in relation to functional support for features and aspects that can affect the quality of content (such as bit-depth for representation of color or sound).">
+				<tbody>
+					<tr>
+						<th class="subhead" scope="col" colspan="2">Other</th>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">3D Model Geometry</th>
+						<td>
+							<p>The OBJ file format can encode surface geometry of a 3D model, using a polygonal mesh and/or freeform geometry using any of a number of techniques to define curved surface patches: basis matrix; Bezier;
+B-spline; Cardinal spline; or Taylor expansion.  See section on <i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Freeform curve and surface types</i> at page 65 of the <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://www.cs.utah.edu/~boulos/cs3505/obj_spec.pdf">specification</a> for more detail.  See also <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#useful">Useful References</a> below for some links to explanations of the underlying mathematics.</p>
+							<p>The compilers of this resource have been unable to determine how widely the more complex freeform modeling options are in use in OBJ files and how widely the techniques are supported in CAD software.  The <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">Wikipedia entry for Wavefront .obj files</a> states, "The most common elements are geometric vertices, texture coordinates, vertex normals and polygonal faces."  <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/contact_format.shtml">Comments welcome</a>.</p>
+							<p><a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://all3dp.com/1/obj-file-format-3d-printing-cad/">OBJ File Format – Simply Explained for CAD and 3D Printing</a> from All3DP states that in general, the most common freeform surface technique in use is NURBS (Non-Uniform Rational B-Spline), a particular variant of B-spline that the OBJ format does support.  <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://knowledge.autodesk.com/support/alias-products/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Alias-ImportingExporting/files/GUID-A1CC091A-A9C8-45DB-A3EA-2DAFE7E1A59D-htm.html">Alias</a> from Autodesk does appear to handle freeform surfaces.  However, the help for <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2020/ENU/3DSMax-Data-Exchange/files/GUID-87B0A138-8348-4DCB-87EE-585841A27318-htm.html">3DS Max</a>, also from Autodesk only mentions the use of meshes on import.  <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://docs.blender.org/manual/en/4.3/index.html">Blender</a> appears to have partial support for curved surfaces defined by NURBS, but converts them to meshes on output. Another example of limited freeform curve support is in <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://nurbs-python.readthedocs.io/en/5.x/">NURBS-Python (geomdl)</a>, a cross-platform, object-oriented B-Spline and NURBS library written in Python, which can output OBJ files.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">3D Model Appearance</th>
+						<td>
+							<p>Appearance characteristics such as color and texture can be defined in companion Material Template Library (<a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000508.shtml">MTL</a>) files.  The MTL file is a "library" that can contain one or more named material definitions, each of which can specify color, texture, and reflection characteristics. An OBJ file refers to the MTL file in an <i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">mtllib</i> declaration and definitions for objects (polygonal or freeform) within the OBJ file can refer to a particular named material definition with a <i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">usemtl</i> statement.</p>
+							<p>The original specification for OBJ had no support for per-vertex color information.  However, a convention has emerged, as described in the <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/Wavefront_.obj_file#Geometric_vertex">Geometric vertex section in the Wikipedia entry for the OBJ file format</a>.  For more detail on the convention and its support in applications, see <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#notes">Note</a> on per-vertex coloring below.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">3D Model Scene</th>
+						<td> An OBJ file can define several objects, but not a scene incorporating lighting positions or pre-determined viewing positions.</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">3D Model Animation</th>
+						<td>The OBJ format does not support pre-determined animation sequences or skeleton structures (assemblies of bones and joints).  A 3D viewer that can render models in the OBJ format will allow rotation and zooming.</td>
+					</tr>
+				</tbody>
+			</table><br><a name="sign"></a><h3>File type signifiers and format identifiers
+						<a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd_explanation.shtml#sign"><img alt="Explanation of format description terms" title="Explanation of format description terms" src="./index_files/info.gif" border="0" vspace="0"></a></h3><table border="1" cellspacing="0" cellpadding="2" width="90%" summary="The File Type Signifiers table documents some of the indicators that may be used by automated systems to identify or characterize a file or the data encodings contained within a file.">
+				<tbody>
+					<tr>
+						<th scope="col">Tag</th>
+						<th scope="col">Value</th>
+						<th scope="col">Note</th>
+					</tr>
+					<tr>
+						<th scope="row" width="15%" valign="top">Filename extension</th>
+						<td width="15%" valign="top">obj<br></td>
+						<td valign="top">Defined in specification.  See also <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.iana.org/assignments/media-types/model/obj">IANA registration of 2020</a>.</td>
+					</tr>
+					<tr>
+						<th scope="row" width="15%" valign="top">Internet Media Type</th>
+						<td width="15%" valign="top">model/obj<br></td>
+						<td valign="top">See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.iana.org/assignments/media-types/model/obj">IANA registration of 2020</a>.</td>
+					</tr>
+					<tr>
+						<th scope="row" width="15%" valign="top">Other</th>
+						<td width="15%" valign="top">NF00755<br></td>
+						<td valign="top">See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.archives.gov/files/lod/dpframework/id/NF00755.ttl">https://www.archives.gov/files/lod/dpframework/id/NF00755.ttl</a>.</td>
+					</tr>
+					<tr>
+						<th scope="row" width="15%" valign="top">Pronom PUID</th>
+						<td width="15%" valign="top">fmt/1210<br></td>
+						<td valign="top">See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://www.nationalarchives.gov.uk/pronom/fmt/1210">http://www.nationalarchives.gov.uk/pronom/fmt/1210</a>.</td>
+					</tr>
+					<tr>
+						<th scope="row" width="15%" valign="top">Wikidata Title ID</th>
+						<td width="15%" valign="top">Q2119595<br></td>
+						<td valign="top">See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.wikidata.org/wiki/Q2119595">https://www.wikidata.org/wiki/Q2119595</a>.</td>
+					</tr>
+				</tbody>
+			</table><br><a name="notes"></a><h3>Notes
+						<a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd_explanation.shtml#notes"><img alt="Explanation of format description terms" title="Explanation of format description terms" src="./index_files/info.gif" border="0" vspace="0"></a></h3><table border="1" cellspacing="0" cellpadding="2" width="90%" summary="The Notes table includes informative notes about the format that do not fit elsewhere in the Format Description Document.">
+				<tbody>
+					<tr>
+						<th scope="row" width="30%" valign="top">General</th>
+						<td valign="top">
+							<p><b xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">3D Model Characteristics</b>:  The quality and functionality factors used above are based on an analysis from 2008 in <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.archives.gov/files/applied-research/ncsa/8-an-overview-of-3d-data-content-file-formats-and-viewers.pdf">An Overview of 3D Data Content, File Formats and Viewers</a>, a technical report (ISDA08-002) from the National Center for Supercomputing Applications (NCSA).  According to this analysis, the key aspects of a 3D model are: geometry, appearance, scene, and animation. For brief descriptions of these factors, see the table for 3D model formats under <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd_explanation.shtml#factors">Quality and functionality factors</a>.  The descriptions there are drawn from the 2008 report and from <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://all3dp.com/3d-file-format-3d-files-3d-printer-3d-cad-vrml-stl-obj/">2019 Most Common 3D File Formats</a> (an article from All3DP), which includes the OBJ format and uses the same factors to distinguish the capabilities of formats.</p>
+							<p>All 3D formats support some method for representing the geometry (the shape) of an object; support for other aspects is optional depending on the primary use of the format.  Table 3 in the 2008 report, <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.archives.gov/files/applied-research/ncsa/8-an-overview-of-3d-data-content-file-formats-and-viewers.pdf">An Overview of 3D Data Content, File Formats and Viewers</a>, compares nine popular 3D formats in use in 2008, including OBJ, based on these four aspects of 3D models.</p>
+							<p><b xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Potential interoperability issues:</b>  The <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">Wikipedia entry for the Wavefront .obj file</a> notes that "OBJ files, due to their list structure, are able to reference vertices, normals, etc. either by their absolute position (1 represents the first defined vertex, N representing the Nth defined vertex), or by their relative position (-1 represents the latest defined vertex). However, not all software supports the latter approach, and conversely some software inherently writes only the latter form (due to the convenience of appending elements without needing to recalculate vertex offsets, etc.), leading to occasional incompatibilities."</p>
+							<p>Documentation for the <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.okino.com/conv/imp_wave.htm">Wavefront OBJ Importer</a> by Okino indicates that before the introduction of the MTL format, an earlier method for applying a texture map to a surface object was via a <i xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">usemap</i> statement in the OBJ file.  The Okino importer would create equivalent MTL-style definitions for any texture maps referenced in this way.  <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/contact_format.shtml">Comments welcome</a>.</p>
+							<p>Another source of potential interoperability issues is in associated <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000508.shtml">MTL</a> files.  Some extensions to the MTL format have been introduced by software vendors or open source projects based on developments in computer graphics techniques for rendering surfaces.  For example, in 2015, Exocortex proposed <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://exocortex.com/blog/extending_wavefront_mtl_to_support_pbr">Extending Wavefront MTL for Physically-Based Rendering</a> through adding new statements, e.g., for defining roughness and clearcoat thickness.  See <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000508.shtml">MTL</a> for more details.</p>
+							<p><b xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Per-vertex coloring in OBJ format:</b>  The per-vertex coloring technique, which is supported in many 3D modeling applications, associates a color (usually based on RGB) with each vertex and renders colors for the pixels on a mesh face by interpolation based on distance from the face vertices. See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://meshlabstuff.blogspot.com/2009/03/on-storage-of-color-in-meshes.html">On the storage of Color in meshes</a> and <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://gamedev.stackexchange.com/questions/139059/what-is-a-vertex-color">What is a vertex color?</a>.</p>
+							<p>The <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/Wavefront_.obj_file#Geometric_vertex">Geometric vertex section in the Wikipedia entry for the OBJ file format</a> describes a convention for storing colors for vertices in an OBJ model, listing color values immediately following the vertex coordinates.  Three colors, in RGB order, are expressed as values in the range 0 to 1.  For example, “v 1220.094482 -572.500000 177.713943 0.984314 0.000060 0.000050” demonstrates a vertex with color information near true red.  Note that this convention allows coloring (but not texturing) of a 3D model without the need for an associated MTL file.  There are advantages and disadvantages of using per-vertex colors depending on context and intended use.  In one context, <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://www.alkemi-games.com/a-game-of-tricks-ii-vertex-color/">A game of Tricks II – Vertex Color</a> explains how vertex colors can improve performance in video games.  For a discussion of the complex choice between using per-vertex colors and texture mapping in the context of a cultural heritage artifact, see the tutorial video <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.youtube.com/watch?v=HKipe2mv-NA">MeshLab Basics: Color encoding</a>. &nbsp;Having the entire model in a single file can simplify workflows and storage organization, but consideration must be given to the importance of geometric precision and color accuracy, and effects on file size and computational efficiency for rendering and manipulation in the intended use. &nbsp;One example from the medical field where per-vertex coloring can be advantageous is for 3D scanning of a pathology specimen; the scanning operation can capture surface color information. &nbsp;Per-vertex coloring can also be useful for applying discrete colors or identifiers via color information on an anatomical model or a model for an assembly of parts. &nbsp;<a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/contact_format.shtml">Comments welcome</a>.</p>
+							<p>Support for this convention for per-vertex coloring in the OBJ file format is provided by several applications, including Meshlab (see video on <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.youtube.com/watch?v=HKipe2mv-NA">MeshLab Basics: Color encoding</a>), <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://docs.unity3d.com/Packages/com.unity.probuilder@4.0/manual/Object_Export.html?q=obj%20export#Obj">Unity ProBuilder</a>, <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://help.sketchfab.com/hc/en-us/articles/210765623-Vertex-Colors">Sketchfab</a>, the Open Asset Import Library (Assimp), and the <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://github.com/mrdoob/three.js/issues/2083">threejs</a> library.  See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://blender.stackexchange.com/questions/90890/how-to-display-and-use-vertex-color-from-obj-model">How to display and use Vertex Color from OBJ model</a> for an informative discussion and evidence of support in Assimp.  Versions of Adobe Photoshop since 2018 have been found to recognize colors on importing OBJ files using this convention for per-vertex colors.  The Preview app on Mac OS also recognizes and renders the colors appropriately.  See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#useful">Useful References</a> below for links to resources about per-vertex coloring, also termed "color per vertex" (CPV).  Note that the convention described here is not the only mechanism that has been implemented to encode per-vertex colors in an OBJ file, but it is the most widely supported. <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/contact_format.shtml">Comments welcome</a>.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" width="30%" valign="top">History</th>
+						<td valign="top">
+							<p>The OBJ format was developed by Wavefront Technologies for the Visualizer products that it developed in the late 1980s and early 1990s.  The compilers of this resource have not been able to determine an exact date for the first use of the format.  The <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://web.archive.org/web/20040418025613/http://www.aliaswavefront.com/eng/about/history/19831989.shtml#1988">company history</a> reveals that in 1988, Wavefront released its first desktop product, known as Personal Visualizer, for the Silicon Graphics (SGI) workstation. In 1989, came the Data Visualizer, intended for industrial design applications. Since a <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.worldcat.org/title/programmers-project-guide-for-the-advanced-visualizer-interim-publication/oclc/24278625">Programmer's Project Guide for the Advanced Visualizer</a> was published by Wavefront Technologies in 1990, <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/The_Advanced_Visualizer">The Advanced Visualizer (TAV)</a> software came out soon after.  The origin of the specification that is widely found is Appendix B of a manual for Advanced Visualizer 3.0; and includes an implication that the OBJ format had been used in the previous version, but not documented.  This specification indicated that "The curve and surface extensions to the .obj file format were developed in conjunction with <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/Mental_Images">mental images GmbH.</a> Berlin, Germany, as part of a joint development project to incorporate free-form surfaces into Wavefront’s Advanced Visualizer."   By 1995, the <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.worldcat.org/title/advanced-visualizer-users-guide-version-42/oclc/249102607">Advanced Visualizer User's Guide, Version 4.2</a> was published.  By 1998, a <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.cc.gatech.edu/scivis/userguide/resources/software/advvis.html">user guide for scientific visualization</a> on workstations at Georgia Tech indicated that version 4.3 of the Advanced Visualizer was installed, soon to be replaced by the first version of the successor product, Maya, which also used the OBJ format.</p>
+							<p>On February 7, 1995, Silicon Graphics had announced that it would purchase Wavefront Technologies and Alias Research.  SGI merged the two companies to create Alias|Wavefront, later simply Alias.  In 2004, SGI sold Alias to a private equity firm, Accel-KKR, with the support of Alias management.  See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://web.archive.org/web/20040703165346/http://www.aliaswavefront.com/eng/about/history/">Alias | About: History</a>.  In 2006, Alias was acquired by Autodesk.  See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://en.wikipedia.org/wiki/Accel-KKR">Wikipedia entry for Accel-KKR</a> and a <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="http://investors.autodesk.com/news-releases/news-release-details/autodesk-completes-acquisition-alias">news release</a> from Autodesk.</p>
+						</td>
+					</tr>
+				</tbody>
+			</table><br><a name="specs"></a><h3>Format specifications 
+						<a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd_explanation.shtml#specs"><img alt="Explanation of format description terms" title="Explanation of format description terms" src="./index_files/info.gif" border="0" vspace="0"></a></h3><ul>
+				<li>The following URLs link to copies of the specification for the OBJ format that was distributed by Wavefront Technologies as Appendix B1 of a manual for version 3.0 of their Advanced Visualizer software.  No copy is more authoritative than the others.  The original date for this document is around 1992.  See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#notes">Notes on History</a> above.<ul>
+						<li><a href="http://www.cs.utah.edu/~boulos/cs3505/obj_spec.pdf">Copy of Appendix B1 of Advanced Visualizer manual | from Wavefront Technologies around 1992</a> (http://www.cs.utah.edu/~boulos/cs3505/obj_spec.pdf).&nbsp;Text as distributed with version 3 of Wavefront's Advanced Visualizer software.</li>
+						<li><a href="http://paulbourke.net/dataformats/obj/">Object Files (.obj) | from Paul Bourke's dataformats site.</a> (http://paulbourke.net/dataformats/obj/).&nbsp;Appears to be a plain-text version of Appendix B1 from the manual for Wavefront's Advanced Visualizer software.</li>
+						<li><a href="http://www.martinreddy.net/gfx/3d/OBJ.spec">Wavefront Object Files | from Martin Reddy's Graphics File Formats site</a> (http://www.martinreddy.net/gfx/3d/OBJ.spec).&nbsp;Another plain-text version of Appendix B1 from the manual for Wavefront&amp;apos;s Advanced Visualizer software.</li>
+						<li><a href="https://web.archive.org/web/20211011140728/https://coefs.uncc.edu/arwillis/programming-and-documentation/object-files-obj/">Object Files (.obj) | from Andrew Willis, The William States Lee College of Engineering. Link via Internet Archive</a> (https://web.archive.org/web/20211011140728/https://coefs.uncc.edu/arwillis/programming-and-documentation/object-files-obj/).&nbsp;Another copy of Appendix B1 from the manual for Wavefront's Advanced Visualizer software</li>
+					</ul></li>
+			</ul><br><a name="useful"></a><h3>Useful references</h3><b>URLs</b><br><ul>
+				<li><a href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">Wikipedia entry for Wavefront .obj file</a> (https://en.wikipedia.org/wiki/Wavefront_.obj_file).</li>
+				<li>Informal descriptions of the format<ul>
+						<li><a href="https://www.fileformat.info/format/wavefrontobj/egff.htm">Wavefront OBJ File Format Summary | from Encyclopedia of Graphics File Formats, 2nd ed. 1996</a> (https://www.fileformat.info/format/wavefrontobj/egff.htm).</li>
+						<li><a href="https://web.archive.org/web/20160324120358/https://people.cs.clemson.edu/~dhouse/courses/405/docs/brief-obj-file-format.html">Alias/WaveFront Object (.obj) File Format. Link via Internet Archive</a> (https://web.archive.org/web/20160324120358/https://people.cs.clemson.edu/~dhouse/courses/405/docs/brief-obj-file-format.html).&nbsp;This useful description covers only the keywords associated with polygonal mesh geometry</li>
+						<li><a href="https://all3dp.com/1/obj-file-format-3d-printing-cad/">OBJ File Format – Simply Explained for CAD and 3D Printing | from All3DP</a> (https://all3dp.com/1/obj-file-format-3d-printing-cad/).&nbsp;Includes comparison with STL, FBX, and Collada formats.</li>
+						<li><a href="https://wiki.fileformat.com/3d/obj/">File Format Developer Guide | OBJ</a> (https://wiki.fileformat.com/3d/obj/).</li>
+						<li><a href="https://knowledge.autodesk.com/support/alias-products/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Alias-ImportingExporting/files/GUID-A1CC091A-A9C8-45DB-A3EA-2DAFE7E1A59D-htm.html">Autodesk Alias Products | OBJ format</a> (https://knowledge.autodesk.com/support/alias-products/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Alias-ImportingExporting/files/GUID-A1CC091A-A9C8-45DB-A3EA-2DAFE7E1A59D-htm.html).</li>
+						<li><a href="http://www.dirsig.org/docs/new/obj.html">Alias/Wavefront OBJ File Format</a> (http://www.dirsig.org/docs/new/obj.html).&nbsp;Outlines how to use the Alias/Wavefront OBJ file format to import attributed geometry into DIRSIG</li>
+					</ul></li>
+				<li><a href="https://all3dp.com/3d-printing-file-formats/">Most Common 3D Printer File Formats (2020)</a> (https://all3dp.com/3d-printing-file-formats/).&nbsp;Compares formats for 3D printing: STL, OBJ, AMF, and 3MF.  With detailed pros and cons, </li>
+				<li>Resources with sample OBJ files<ul>
+						<li><a href="http://people.math.sc.edu/Burkardt/data/obj/obj.html">OBJ Files:
+A 3D Object Format | example files</a> (http://people.math.sc.edu/Burkardt/data/obj/obj.html).</li>
+						<li><a href="https://www.laserdesign.com/sample-files/type/obj/">Sample files: OBJ | from LaserDesign</a> (https://www.laserdesign.com/sample-files/type/obj/).</li>
+						<li><a href="https://free3d.com/3d-models/obj">Free 3D Models in OBJ format | from Free3D</a> (https://free3d.com/3d-models/obj).&nbsp;Shows that OBJ is widely used as a format in which to share models.</li>
+					</ul></li>
+				<li>Selected tools designed to support conversion or manipulation of 3D models and which can import or export OBJ files<ul>
+						<li><a href="https://www.blender.org/features/pipeline/">Blender | File Formats</a> (https://www.blender.org/features/pipeline/).&nbsp;A free open-source 3D creation suite</li>
+						<li><a href="hhttps://docs.blender.org/manual/en/4.3/index.html">Wavefront OBJ | in Blender application</a> (hhttps://docs.blender.org/manual/en/4.3/index.html).&nbsp;Implies that OBJ files can be imported and exported.  On export, NURBS surfaces are converted to polygonal meshes.  As of early 2020, Blender does not recognize per-vertex colors on import of OBJ objects employing the convention (described in Notes above) for storing per-vertex colors immediately following vertex coordinates.</li>
+						<li><a href="http://www.meshlab.net/">MeshLab | from Visual Computing Lab of ISTI-CNR</a> (http://www.meshlab.net/).</li>
+						<li><a href="https://github.com/assimp/assimp">Open Asset Import Library (assimp)</a> (https://github.com/assimp/assimp).&nbsp;A library to load and process geometric scenes from various data formats.</li>
+						<li><a href="https://products.aspose.com/3d/java">Aspose.3D for Java</a> (https://products.aspose.com/3d/java).&nbsp;Describes itself as a standalone gameware and CAD API to manipulate 3D files.  Can import Wavefront OBJ files.</li>
+						<li><a href="https://www.techsoft3d.com/products/hoops/exchange/">HOOPS Exchange SDK</a> (https://www.techsoft3d.com/products/hoops/exchange/).&nbsp;Describes itself as a CAD Data Translation Toolkit.  Supports OBJ for import and export.</li>
+						<li><a href="https://www.okino.com/conv/imp_wave.htm">Okino: Wavefront OBJ Importer</a> (https://www.okino.com/conv/imp_wave.htm).</li>
+						<li><a href="https://nurbs-python.readthedocs.io/en/5.x/">NURBS-Python | Supported File Formats</a> (https://nurbs-python.readthedocs.io/en/5.x/).</li>
+						<li><a href="https://www.safe.com/integrate/obj/">Integrate Wavefront OBJ Using FME (Feature Manipulation Engine) | from Safe Software</a> (https://www.safe.com/integrate/obj/).</li>
+						<li><a href="https://github.com/NNU-GISA/vtkplotter">vtkplotter | Python module for scientific visualization, analysis and animation of 3D objects and point clouds.</a> (https://github.com/NNU-GISA/vtkplotter).&nbsp;Can import meshes from VTK format, STL, Wavefront OBJ, 3DS, PCD (PointCloud), volumetric TIFF stacks, 2D images PNG, JPEG.</li>
+					</ul></li>
+				<li>Utilities designed specifically to read or write Wavefront OBJ files<ul>
+						<li><a href="https://github.com/pywavefront/PyWavefront">PyWavefront | python program to read OBJ files</a> (https://github.com/pywavefront/PyWavefront).</li>
+						<li><a href="https://github.com/dwmkerr/file-format-wavefront">file-format-wavefront
+| on github</a> (https://github.com/dwmkerr/file-format-wavefront).&nbsp;A .NET library to load data from Wavefront *.obj files and associated .mtl files</li>
+						<li><a href="https://threejs.org/examples/jsm/loaders/OBJLoader.js">OBJ Loader (Javascript code) | from Three.js Javascript library</a> (https://threejs.org/examples/jsm/loaders/OBJLoader.js).&nbsp;three.js, a 3D library that tries to make it as easy as possible to get 3D content on a webpage, recommends use of glTF but provides loaders for other popular formats, including OBJ.</li>
+					</ul></li>
+				<li>The use of freeform curves and surfaces in 3D software for generating, viewing, or rendering, depends on sophisticated mathematical techniques.  Full implementation of the OBJ format can require use of techniques described in the resources below.<ul>
+						<li><a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">Wikipedia entry for Bézier curve</a> (https://en.wikipedia.org/wiki/B%C3%A9zier_curve).</li>
+						<li><a href="https://en.wikipedia.org/wiki/B%C3%A9zier_surface">Wikipedia entry for Bézier surface</a> (https://en.wikipedia.org/wiki/B%C3%A9zier_surface).</li>
+						<li><a href="https://www.cs.bham.ac.uk/~slb/courses/Graphics/g95.html">Bezier and B-spline Surfaces | by Susan Laflin (1999)</a> (https://www.cs.bham.ac.uk/~slb/courses/Graphics/g95.html).</li>
+						<li><a href="https://docs.microsoft.com/en-us/windows/win32/gdiplus/-gdiplus-bezier-splines-about">About Bezier Splines | from Help for Windows GDI+, an API for C/C++ programmers</a> (https://docs.microsoft.com/en-us/windows/win32/gdiplus/-gdiplus-bezier-splines-about).</li>
+						<li><a href="https://en.wikipedia.org/wiki/B-spline">Wikipedia entry for B-spline</a> (https://en.wikipedia.org/wiki/B-spline).&nbsp;The Non-Uniform Rational B-Spline (aka NURBS) is an important variant of B-spline for 3D Modeling.   </li>
+						<li><a href="https://en.wikipedia.org/wiki/Non-uniform_rational_B-spline">Wikipedia entry for Non-Uniform Rational Basis Spline (NURBS)</a> (https://en.wikipedia.org/wiki/Non-uniform_rational_B-spline).&nbsp;The OBJ format supports use of NURBS to model surface patches.</li>
+						<li><a href="https://docs.microsoft.com/en-us/windows/win32/gdiplus/-gdiplus-cardinal-splines-about">About Cardinal Splines | from Help for Windows GDI+, an API for C/C++ programmers</a> (https://docs.microsoft.com/en-us/windows/win32/gdiplus/-gdiplus-cardinal-splines-about).</li>
+					</ul></li>
+				<li>The resources listed below relate to the history of the corporations that have owned or contributed to the OBJ format, starting with Wavefront Technologies, which merged with Alias, and ending with Autodesk.<ul>
+						<li><a href="https://en.wikipedia.org/wiki/Wavefront_Technologies">Wikipedia entry for Wavefront Technologies</a> (https://en.wikipedia.org/wiki/Wavefront_Technologies).&nbsp;The company that first defined the OBJ format.  After a series of mergers and acquisitions, the associated software products and, presumably, the OBJ specification are owned by Autodesk in 2019.e transferred the success</li>
+						<li><a href="https://en.wikipedia.org/wiki/Alias_Systems_Corporation">Wikipedia entry for Alias Systems Corporation </a> (https://en.wikipedia.org/wiki/Alias_Systems_Corporation).&nbsp;This company was formed in 1995 when Alias Research and Wavefront were both acquired by Silicon Graphics (SGI).  In 2004, SGI sold Alias to Accel-KKR a private equity firm.merged </li>
+						<li><a href="https://en.wikipedia.org/wiki/The_Advanced_Visualizer">Wikipedia entry for The Advanced Visualizer (TAV)</a> (https://en.wikipedia.org/wiki/The_Advanced_Visualizer).&nbsp;Software for which Wavefront Technologies developed the OBJ format.</li>
+						<li><a href="https://web.archive.org/web/20040630210601/http://www.aliaswavefront.com/eng/about/history/2004.shtml">About Alias | History</a> (https://web.archive.org/web/20040630210601/http://www.aliaswavefront.com/eng/about/history/2004.shtml).&nbsp;Includes announcement of 2004 sale of Alias to Accel-KKR</li>
+						<li><a href="https://en.wikipedia.org/wiki/Accel_(company)">Wikipedia entry for Accel</a> (https://en.wikipedia.org/wiki/Accel_(company)).&nbsp;Alias was part of this private equity firm's portfolio until January 2006, when it was acquired by Autodesk.</li>
+						<li><a href="https://www.accel-kkr.com/portfolio/alias/">Accel KKR | Portfolio: Accel</a> (https://www.accel-kkr.com/portfolio/alias/).&nbsp;Alias was part of the Accel KKR portfolio of companies through 2005.</li>
+						<li><a href="https://web.archive.org/web/20240422095659/http://investors.autodesk.com/news-releases/news-release-details/autodesk-completes-acquisition-alias">Autodesk Completes Acquisition of Alias (January 2006). Link via Internet Archive</a> (https://web.archive.org/web/20240422095659/http://investors.autodesk.com/news-releases/news-release-details/autodesk-completes-acquisition-alias).</li>
+					</ul></li>
+				<li>The resources below illustrate the continued popularity of the OBJ format.  Some identify pros and cons in comparison with other 3D model formats.<ul>
+						<li><a href="https://all3dp.com/3d-file-format-3d-files-3d-printer-3d-cad-vrml-stl-obj/#Top">Most Common 3D File Formats | from All3DP</a> (https://all3dp.com/3d-file-format-3d-files-3d-printer-3d-cad-vrml-stl-obj/#Top).</li>
+						<li><a href="https://all3dp.com/3d-printing-3d-printer-guide-101-questions/">The Ultimate Guide to 3D Printing – 101 Questions Answered | from All3DP</a> (https://all3dp.com/3d-printing-3d-printer-guide-101-questions/).&nbsp;See question 40.  Highlights STL, OBJ, PLY, and 3MF as the most common formats for 3D printing.</li>
+						<li><a href="https://www.threekit.com/blog/should-you-use-the-obj-3d-file-format">Should you use the OBJ 3D file format?</a> (https://www.threekit.com/blog/should-you-use-the-obj-3d-file-format).</li>
+						<li><a href="https://web.archive.org/web/20210925041204/https://guides.auraria.edu/c.php?g=567257&amp;p=3907431">Working in 3D: Designing and Saving for 3D Printing | from Auraria Library guidance. Link via Internet Archive</a> (https://web.archive.org/web/20210925041204/https://guides.auraria.edu/c.php?g=567257&amp;p=3907431).&nbsp;Recommends use of STL or OBJ.</li>
+						<li><a href="https://3dprinting.stackexchange.com/questions/5603/what-is-the-difference-between-stl-and-obj-files-and-which-one-should-i-use">What is the difference between STL and OBJ files and which one should I use? (2018) | from 3D Printing StackExchange</a> (https://3dprinting.stackexchange.com/questions/5603/what-is-the-difference-between-stl-and-obj-files-and-which-one-should-i-use).</li>
+						<li><a href="https://support.office.com/en-us/article/file-types-supported-for-previewing-files-in-onedrive-sharepoint-and-teams-e054cd0f-8ef2-4ccb-937e-26e37419c5e4">File types supported for previewing files in OneDrive, SharePoint, and Teams | from Microsoft</a> (https://support.office.com/en-us/article/file-types-supported-for-previewing-files-in-onedrive-sharepoint-and-teams-e054cd0f-8ef2-4ccb-937e-26e37419c5e4).</li>
+						<li><a href="https://techcommunity.microsoft.com/discussions/onedriveforbusiness/announcing-new-file-viewers-available-for-onedrive-for-business/60040">Announcing New File Viewers Available for OneDrive For Business (April 2017)</a> (https://techcommunity.microsoft.com/discussions/onedriveforbusiness/announcing-new-file-viewers-available-for-onedrive-for-business/60040).&nbsp;Added support for 3D formats (3MF, FBX, OBJ, PLY, STL).</li>
+						<li><a href="https://www.channotation.org/docs/contents_objmtl_file/">Channel Annotation Package (CHAP) | Contents of the OBJ and MTL Output Files</a> (https://www.channotation.org/docs/contents_objmtl_file/).&nbsp;OBJ/MTL are used in CHAP to represent the geometry of a channel’s permeation pathway and its colour coding according to various properties such as channel radius or channel hydrophobicity.</li>
+					</ul></li>
+				<li>The resources below relate to support for OBJ in various Autodesk products<ul>
+						<li><a href="https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2020/ENU/3DSMax-Data-Exchange/files/GUID-87B0A138-8348-4DCB-87EE-585841A27318-htm.html">3DS Max | Wavefront (OBJ) Files</a> (https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2020/ENU/3DSMax-Data-Exchange/files/GUID-87B0A138-8348-4DCB-87EE-585841A27318-htm.html).</li>
+						<li><a href="https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2020/ENU/3DSMax-Data-Exchange/files/GUID-7A9535E6-235D-459B-B32D-5A9E5E4EBF28-htm.html">3DS Max | OBJ Import Options Dialog</a> (https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2020/ENU/3DSMax-Data-Exchange/files/GUID-7A9535E6-235D-459B-B32D-5A9E5E4EBF28-htm.html).&nbsp;States that the OBJ/MTL export/import plug-in is provided by software from GuruWare. </li>
+						<li><a href="https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2020/ENU/3DSMax-Data-Exchange/files/GUID-437051A1-983B-4B6A-80C4-D2FA43B7393D-htm.html">3DS Max | Wavefront Object (OBJ) Export Options Dialog</a> (https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2020/ENU/3DSMax-Data-Exchange/files/GUID-437051A1-983B-4B6A-80C4-D2FA43B7393D-htm.html).</li>
+						<li><a href="https://knowledge.autodesk.com/support/alias-products/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Alias-ImportingExporting/files/GUID-A1CC091A-A9C8-45DB-A3EA-2DAFE7E1A59D-htm.html">Alias | OBJ format</a> (https://knowledge.autodesk.com/support/alias-products/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Alias-ImportingExporting/files/GUID-A1CC091A-A9C8-45DB-A3EA-2DAFE7E1A59D-htm.html).&nbsp;Suggests that Alias can import and export models with freeform surfaces, e.g., those defined by NURBS models.</li>
+					</ul></li>
+				<li>OBJ models can be imported into some products from ESRI, that are beginning to integrate 3D models with geospatial data.<ul>
+						<li><a href="https://doc.arcgis.com/en/cityengine/latest/help/help-import-obj.htm">CityEngine | Import OBJ (Wavefront)</a> (https://doc.arcgis.com/en/cityengine/latest/help/help-import-obj.htm).</li>
+						<li><a href="https://doc.arcgis.com/en/cityengine/latest/help/help-export-obj.htm">CityEngine | Export OBJ (Wavefront)</a> (https://doc.arcgis.com/en/cityengine/latest/help/help-export-obj.htm).</li>
+						<li><a href="https://www.esriuk.com/en-gb/arcgis/products/arcgis-data-interoperability/supported-formats">ArcGIS Data Interoperability</a> (https://www.esriuk.com/en-gb/arcgis/products/arcgis-data-interoperability/supported-formats).&nbsp;With this ArcGIS Pro extension, Wavefront OBJ as supported by "direct read" and for import and export.</li>
+						<li><a href="https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/import-3d-files.htm">ArcGIS 3D Analyst Toolbox | Import 3D Files</a> (https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/import-3d-files.htm).&nbsp;This extension to ArcGIS PRO includes support for importing Wavefront OBJ files into a 3D Scene.</li>
+						<li><a href="https://support.esri.com/en/technical-article/000016699">How To: Use 3D shapes as marker symbols in an ArcGIS Pro scene view</a> (https://support.esri.com/en/technical-article/000016699).&nbsp;ArcGIS Pro supports COLLADA (.dae), 3ds Max (.3ds), OpenFlight (.flt), and Wavefront (.obj) models for custom 3D symbols.</li>
+					</ul></li>
+				<li>The resources listed below discuss the use of per-vertex coloring in contrast to other techniques for specification of colors for 3D models.<ul>
+						<li><a href="http://meshlabstuff.blogspot.com/2009/03/on-storage-of-color-in-meshes.html">On the Storage of Color in Meshes (2009) | from Meshlab Stuff blog</a> (http://meshlabstuff.blogspot.com/2009/03/on-storage-of-color-in-meshes.html).&nbsp;Describes different ways to store coloring specification for a mesh.</li>
+						<li><a href="https://gamedev.stackexchange.com/questions/139059/what-is-a-vertex-color">What is a vertex color? (2017) | Q&amp;A from Game Development Stack Exchange</a> (https://gamedev.stackexchange.com/questions/139059/what-is-a-vertex-color).</li>
+						<li><a href="https://web.archive.org/web/20170317043105/http://www.neilblevins.com/cg_education/shading_pipeline_overview/shading_pipeline_overview_6.htmpeline_overview_6.htm">How Do I Shade / Texture Stuff?: Shading Workflow Overview -- Pattern Storage And Texture Baking | from Computer Graphics Educaton by Neil Blevins. Link via Internet Archives</a> (https://web.archive.org/web/20170317043105/http://www.neilblevins.com/cg_education/shading_pipeline_overview/shading_pipeline_overview_6.htmpeline_overview_6.htm).&nbsp;Gives brief explanations, with advantages and disadvantages, of 7 different methods for applying colors/textures/patterns.</li>
+						<li><a href="http://www.alkemi-games.com/a-game-of-tricks-ii-vertex-color/">A game of Tricks II – Vertex Color | from alkemi-games.com</a> (http://www.alkemi-games.com/a-game-of-tricks-ii-vertex-color/).&nbsp;Discusses performance advantage of per-vertex coloring in video games.</li>
+					</ul></li>
+				<li>The resources below relate to the convention extending the OBJ format to allow specification of coloring within an OBJ model on a per vertex basis.  The convention is supported by several widely used 3D applications and software libraries.  See <a xmlns:fdd=".\fdd.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml#notes">Note</a> on per-vertex coloring above.<ul>
+						<li><a href="https://gamedev.stackexchange.com/questions/21303/how-can-i-include-vertex-color-information-in-obj-files/66270#66270">Answer to: How can I include vertex color information in .OBJ files? | from Game Development Stack Exchange</a> (https://gamedev.stackexchange.com/questions/21303/how-can-i-include-vertex-color-information-in-obj-files/66270#66270).</li>
+						<li><a href="https://www.youtube.com/watch?v=HKipe2mv-NA&amp;list=PL8B1E816EAE236B4D">MeshLab Basics: Color encoding</a> (https://www.youtube.com/watch?v=HKipe2mv-NA&amp;list=PL8B1E816EAE236B4D).&nbsp;Video tutorial introducing color encoding in Meshlab, including per-vertex coloring.</li>
+						<li><a href="https://blender.stackexchange.com/questions/90890/how-to-display-and-use-vertex-color-from-obj-model">How to display and use Vertex Color from OBJ model | from Blender Stack Exchange</a> (https://blender.stackexchange.com/questions/90890/how-to-display-and-use-vertex-color-from-obj-model).</li>
+						<li><a href="https://github.com/mrdoob/three.js/issues/2083">OBJ Vertex Coloring Parsing Problem | Issue related to threejs software library</a> (https://github.com/mrdoob/three.js/issues/2083).&nbsp;Thread about adding support for per-vertex color in OBJ format to threejs.</li>
+						<li><a href="https://docs.unity3d.com/Packages/com.unity.probuilder@4.0/manual/Object_Export.html?q=obj%20export#Obj">Export: OBJ-specific options | Help for Unity ProBuilder</a> (https://docs.unity3d.com/Packages/com.unity.probuilder@4.0/manual/Object_Export.html?q=obj%20export#Obj).&nbsp;Includes option to write vertex colors when exporting OBJ files.</li>
+						<li><a href="https://help.sketchfab.com/hc/en-us/articles/210765623-Vertex-Colors%0A">Uploading 3D Models: Vertex Colors | from Sketchfab</a> (https://help.sketchfab.com/hc/en-us/articles/210765623-Vertex-Colors
+).&nbsp;Indicates that Sketchfab can recognize vertex colors in OBJ files on import.</li>
+					</ul></li>
+				<li>Working Group 17 for the Digital Imaging and Communications in Medicine (DICOM) standard is responsible for expanding the standard as a wrapper for 3D content.  Based on a survey of use of 3D formats in medicine, support for encapsulating STL was added in DICOM 2018b.  Support for encapsulating OBJ was added in DICOM 2020a. <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000490.shtml">X3D</a>/VRML and 3MF are also widely used and the working group expects to add support for encapsulating 3D models in more of these formats.<ul>
+						<li><a href="https://www.dicomstandard.org/activity/wgs/wg-17">DICOM Working Group 17</a> (https://www.dicomstandard.org/activity/wgs/wg-17).&nbsp;Expansion of DICOM to support encapsulation of additional formats is planned.</li>
+						<li><a href="https://www.dclunie.com/dicom-status/status.html">DICOM Standard Status (updated with every change)</a> (https://www.dclunie.com/dicom-status/status.html).</li>
+						<li><a href="https://www.dicomstandard.org/News/current/docs/sups/sup208-slides.pdf">Overview: Encapsulation of OBJ Models for 3D Manufacturing and Virtual Reality | slides (2019)</a> (https://www.dicomstandard.org/News/current/docs/sups/sup208-slides.pdf).&nbsp;Prepared to accompany ballot to add encapsulation of OBJ and MTL formats to DICOM standard.</li>
+						<li><a href="https://dicomstandard.org/News/ftsup/docs/sups/sup208.pdf">Supplement 208: DICOM Encapsulation of OBJ Models for 3D Manufacturing and Virtual Reality</a> (https://dicomstandard.org/News/ftsup/docs/sups/sup208.pdf).</li>
+					</ul></li>
+				<li><a href="https://www.archives.gov/files/lod/dpframework/id/NF00755.ttl">NARA File Format Preservation Plan ID entry for NF00755</a> (https://www.archives.gov/files/lod/dpframework/id/NF00755.ttl).&nbsp;Information in NARA File Format Preservation Plan ID about Wavefront 3D Object File.</li>
+				<li><a href="http://www.nationalarchives.gov.uk/pronom/fmt/1210">PRONOM entry for fmt/1210</a> (http://www.nationalarchives.gov.uk/pronom/fmt/1210).&nbsp;Information in PRONOM on Wavefront OBJ File.   PUID: fmt/1210.</li>
+				<li><a href="https://www.wikidata.org/wiki/Q2119595">Wikidata entry for Q2119595</a> (https://www.wikidata.org/wiki/Q2119595).&nbsp;Information in WikiData about Wavefront OBJ format.  WikiData Title ID: Q2119595</li>
+			</ul><br><!-- stopprint --><br><div align="right" class="update">Last Updated: 02/20/2025</div><br></div><!-- end body area --><!-- begin footer table -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr> 
+    <td class="footer-bg"> 
+	<table cellpadding="3" cellspacing="0" border="0" width="100%" class="header-bg">
+        <tbody><tr valign="top">
+          <td class="header">&nbsp;</td>
+          <td align="right"> 
+            <div align="right" class="header"><a href="https://www.loc.gov/preservation/digital/index.html">Digital Preservation Home</a> | <a href="https://www.loc.gov/preservation/digital/formats/index.html">Digital Formats Home</a> &nbsp;&nbsp;&nbsp;</div>
+          </td>
+        </tr>
+     </tbody></table>
+	</td>
+  </tr>
+</tbody></table>
+<!-- end footer table -->
+<script>if(window['_satellite']){_satellite.pageBottom();}</script>
+<script>
+//UX Tracking - start
+var loc_ux_tracking = (function() {
+    return {
+        trackUserInterfaceAction : function($, control_name, interaction){
+            control_name = encodeURI(control_name);
+            interaction = encodeURI(interaction);
+            $("<img width='1' height='1' border='0' alt=''/>").attr('src', '//'+s.trackingServer+'/b/ss/locmainprod/1/H.25.2--NS/0&amp;c7='+control_name+'&amp;c8='+interaction);
+        },
+
+        trackUserInteractionEvent : function(href_attr, category, action, label){
+        	s.linkTrackVars = s.linkTrackVars + ",prop75,prop1";
+        
+        	var eventString = category + '::' + action + '::' + label;
+        	s.prop75 = eventString
+        	s.tl(href_attr,'o',eventString);
+        },
+
+        trackFileDownloadEvent : function(href_attr, file_info){
+            s.linkTrackVars = s.linkTrackVars + ",eVar25,eVar26,eVar27,eVar28,eVar29";
+
+            // URLftrack
+            if (typeof file_info[0] != 'undefined') {
+            	s.eVar29 = file_info[0];
+            }
+            // MIME Type
+            if (typeof file_info[1] != 'undefined') {
+            	s.eVar25 = file_info[1];
+            }
+            // Division
+            if (typeof file_info[2] != 'undefined') {
+            	s.eVar26 = file_info[2];
+            }
+            // Collection
+            if (typeof file_info[3] != 'undefined') {
+            	s.eVar27 = file_info[3];
+            }
+            // Item Name
+            if (typeof file_info[4] != 'undefined') {
+            	s.eVar28 = file_info[4];
+            }
+
+            s.tl(href_attr,'o',file_info.toString());
+        }
+	};
+})();
+//UX Tracking - end
+</script></body></html>

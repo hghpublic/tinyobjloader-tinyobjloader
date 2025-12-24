@@ -1,0 +1,68 @@
+/opt/cmake/bin/cmake -S/workspaces/tinyobjloader-tinyobjloader -B/workspaces/tinyobjloader-tinyobjloader/build_python_module --check-build-system CMakeFiles/Makefile.cmake 0
+/opt/cmake/bin/cmake -E cmake_progress_start /workspaces/tinyobjloader-tinyobjloader/build_python_module/CMakeFiles /workspaces/tinyobjloader-tinyobjloader/build_python_module//CMakeFiles/progress.marks
+make  -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+make  -f CMakeFiles/tinyobjloader.dir/build.make CMakeFiles/tinyobjloader.dir/depend
+make  -f CMakeFiles/pytinyobjloader.dir/build.make CMakeFiles/pytinyobjloader.dir/depend
+make[2]: Entering directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+cd /workspaces/tinyobjloader-tinyobjloader/build_python_module && /opt/cmake/bin/cmake -E cmake_depends "Unix Makefiles" /workspaces/tinyobjloader-tinyobjloader /workspaces/tinyobjloader-tinyobjloader /workspaces/tinyobjloader-tinyobjloader/build_python_module /workspaces/tinyobjloader-tinyobjloader/build_python_module /workspaces/tinyobjloader-tinyobjloader/build_python_module/CMakeFiles/tinyobjloader.dir/DependInfo.cmake "--color=" tinyobjloader
+make[2]: Entering directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+cd /workspaces/tinyobjloader-tinyobjloader/build_python_module && /opt/cmake/bin/cmake -E cmake_depends "Unix Makefiles" /workspaces/tinyobjloader-tinyobjloader /workspaces/tinyobjloader-tinyobjloader /workspaces/tinyobjloader-tinyobjloader/build_python_module /workspaces/tinyobjloader-tinyobjloader/build_python_module /workspaces/tinyobjloader-tinyobjloader/build_python_module/CMakeFiles/pytinyobjloader.dir/DependInfo.cmake "--color=" pytinyobjloader
+make[2]: Leaving directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+make  -f CMakeFiles/tinyobjloader.dir/build.make CMakeFiles/tinyobjloader.dir/build
+make[2]: Leaving directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+make  -f CMakeFiles/pytinyobjloader.dir/build.make CMakeFiles/pytinyobjloader.dir/build
+make[2]: Entering directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+make[2]: Entering directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+[ 20%] Building CXX object CMakeFiles/tinyobjloader.dir/tiny_obj_loader.cc.o
+/usr/bin/clang++   -std=c++11 -MD -MT CMakeFiles/tinyobjloader.dir/tiny_obj_loader.cc.o -MF CMakeFiles/tinyobjloader.dir/tiny_obj_loader.cc.o.d -o CMakeFiles/tinyobjloader.dir/tiny_obj_loader.cc.o -c /workspaces/tinyobjloader-tinyobjloader/tiny_obj_loader.cc
+[ 30%] Building CXX object CMakeFiles/pytinyobjloader.dir/python/bindings.cc.o
+[ 30%] Building CXX object CMakeFiles/pytinyobjloader.dir/python/tiny_obj_loader.cc.o
+/usr/bin/clang++ -Dpytinyobjloader_EXPORTS -isystem /usr/include/python3.12 -isystem /usr/lib/python3/dist-packages/pybind11/include -std=c++11 -fPIC -fvisibility=hidden -flto -MD -MT CMakeFiles/pytinyobjloader.dir/python/bindings.cc.o -MF CMakeFiles/pytinyobjloader.dir/python/bindings.cc.o.d -o CMakeFiles/pytinyobjloader.dir/python/bindings.cc.o -c /workspaces/tinyobjloader-tinyobjloader/python/bindings.cc
+/usr/bin/clang++ -Dpytinyobjloader_EXPORTS -isystem /usr/include/python3.12 -isystem /usr/lib/python3/dist-packages/pybind11/include -std=c++11 -fPIC -fvisibility=hidden -flto -MD -MT CMakeFiles/pytinyobjloader.dir/python/tiny_obj_loader.cc.o -MF CMakeFiles/pytinyobjloader.dir/python/tiny_obj_loader.cc.o.d -o CMakeFiles/pytinyobjloader.dir/python/tiny_obj_loader.cc.o -c /workspaces/tinyobjloader-tinyobjloader/python/tiny_obj_loader.cc
+[ 40%] Linking CXX static library libtinyobjloader.a
+/opt/cmake/bin/cmake -P CMakeFiles/tinyobjloader.dir/cmake_clean_target.cmake
+/opt/cmake/bin/cmake -E cmake_link_script CMakeFiles/tinyobjloader.dir/link.txt --verbose=1
+/usr/bin/llvm-ar qc libtinyobjloader.a CMakeFiles/tinyobjloader.dir/tiny_obj_loader.cc.o
+/usr/bin/llvm-ranlib libtinyobjloader.a
+make[2]: Leaving directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+[ 40%] Built target tinyobjloader
+make  -f CMakeFiles/test_loader.dir/build.make CMakeFiles/test_loader.dir/depend
+make  -f CMakeFiles/obj_sticher.dir/build.make CMakeFiles/obj_sticher.dir/depend
+make[2]: Entering directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+cd /workspaces/tinyobjloader-tinyobjloader/build_python_module && /opt/cmake/bin/cmake -E cmake_depends "Unix Makefiles" /workspaces/tinyobjloader-tinyobjloader /workspaces/tinyobjloader-tinyobjloader /workspaces/tinyobjloader-tinyobjloader/build_python_module /workspaces/tinyobjloader-tinyobjloader/build_python_module /workspaces/tinyobjloader-tinyobjloader/build_python_module/CMakeFiles/test_loader.dir/DependInfo.cmake "--color=" test_loader
+make[2]: Entering directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+cd /workspaces/tinyobjloader-tinyobjloader/build_python_module && /opt/cmake/bin/cmake -E cmake_depends "Unix Makefiles" /workspaces/tinyobjloader-tinyobjloader /workspaces/tinyobjloader-tinyobjloader /workspaces/tinyobjloader-tinyobjloader/build_python_module /workspaces/tinyobjloader-tinyobjloader/build_python_module /workspaces/tinyobjloader-tinyobjloader/build_python_module/CMakeFiles/obj_sticher.dir/DependInfo.cmake "--color=" obj_sticher
+make[2]: Leaving directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+make  -f CMakeFiles/test_loader.dir/build.make CMakeFiles/test_loader.dir/build
+make[2]: Leaving directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+make  -f CMakeFiles/obj_sticher.dir/build.make CMakeFiles/obj_sticher.dir/build
+make[2]: Entering directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+make[2]: Entering directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+[ 70%] Building CXX object CMakeFiles/test_loader.dir/loader_example.cc.o
+[ 70%] Building CXX object CMakeFiles/obj_sticher.dir/examples/obj_sticher/obj_writer.cc.o
+[ 70%] Building CXX object CMakeFiles/obj_sticher.dir/examples/obj_sticher/obj_sticher.cc.o
+/usr/bin/clang++  -I/workspaces/tinyobjloader-tinyobjloader -std=c++11 -MD -MT CMakeFiles/test_loader.dir/loader_example.cc.o -MF CMakeFiles/test_loader.dir/loader_example.cc.o.d -o CMakeFiles/test_loader.dir/loader_example.cc.o -c /workspaces/tinyobjloader-tinyobjloader/loader_example.cc
+/usr/bin/clang++  -I/workspaces/tinyobjloader-tinyobjloader -std=c++11 -MD -MT CMakeFiles/obj_sticher.dir/examples/obj_sticher/obj_writer.cc.o -MF CMakeFiles/obj_sticher.dir/examples/obj_sticher/obj_writer.cc.o.d -o CMakeFiles/obj_sticher.dir/examples/obj_sticher/obj_writer.cc.o -c /workspaces/tinyobjloader-tinyobjloader/examples/obj_sticher/obj_writer.cc
+/usr/bin/clang++  -I/workspaces/tinyobjloader-tinyobjloader -std=c++11 -MD -MT CMakeFiles/obj_sticher.dir/examples/obj_sticher/obj_sticher.cc.o -MF CMakeFiles/obj_sticher.dir/examples/obj_sticher/obj_sticher.cc.o.d -o CMakeFiles/obj_sticher.dir/examples/obj_sticher/obj_sticher.cc.o -c /workspaces/tinyobjloader-tinyobjloader/examples/obj_sticher/obj_sticher.cc
+[ 80%] Linking CXX executable obj_sticher
+/opt/cmake/bin/cmake -E cmake_link_script CMakeFiles/obj_sticher.dir/link.txt --verbose=1
+/usr/bin/clang++ -Xlinker --dependency-file=CMakeFiles/obj_sticher.dir/link.d CMakeFiles/obj_sticher.dir/examples/obj_sticher/obj_writer.cc.o CMakeFiles/obj_sticher.dir/examples/obj_sticher/obj_sticher.cc.o -o obj_sticher  libtinyobjloader.a
+make[2]: Leaving directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+[ 80%] Built target obj_sticher
+[ 90%] Linking CXX executable test_loader
+/opt/cmake/bin/cmake -E cmake_link_script CMakeFiles/test_loader.dir/link.txt --verbose=1
+/usr/bin/clang++ -Xlinker --dependency-file=CMakeFiles/test_loader.dir/link.d CMakeFiles/test_loader.dir/loader_example.cc.o -o test_loader  libtinyobjloader.a
+/opt/cmake/bin/cmake -E copy /workspaces/tinyobjloader-tinyobjloader/models/catmark_torus_creases0.obj /workspaces/tinyobjloader-tinyobjloader/build_python_module/models/catmark_torus_creases0.obj
+make[2]: Leaving directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+[ 90%] Built target test_loader
+[100%] Linking CXX shared module tinyobjloader.cpython-312-aarch64-linux-gnu.so
+/opt/cmake/bin/cmake -E cmake_link_script CMakeFiles/pytinyobjloader.dir/link.txt --verbose=1
+/usr/bin/clang++ -fPIC -shared -flto -Xlinker --dependency-file=CMakeFiles/pytinyobjloader.dir/link.d  -o tinyobjloader.cpython-312-aarch64-linux-gnu.so CMakeFiles/pytinyobjloader.dir/python/bindings.cc.o CMakeFiles/pytinyobjloader.dir/python/tiny_obj_loader.cc.o
+/usr/bin/llvm-strip /workspaces/tinyobjloader-tinyobjloader/build_python_module/tinyobjloader.cpython-312-aarch64-linux-gnu.so
+copying tinyobjloader native python module file to python/
+/opt/cmake/bin/cmake -E copy /workspaces/tinyobjloader-tinyobjloader/build_python_module/tinyobjloader.cpython-312-aarch64-linux-gnu.so /workspaces/tinyobjloader-tinyobjloader/python/tinyobjloader.cpython-312-aarch64-linux-gnu.so
+make[2]: Leaving directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+[100%] Built target pytinyobjloader
+make[1]: Leaving directory '/workspaces/tinyobjloader-tinyobjloader/build_python_module'
+/opt/cmake/bin/cmake -E cmake_progress_start /workspaces/tinyobjloader-tinyobjloader/build_python_module/CMakeFiles 0

@@ -1,0 +1,18 @@
+= obj
+
+https://en.wikipedia.org/wiki/Wavefront_.obj_file
+
+== MTL material format (Lightwave, OBJ)
+
+https://paulbourke.net/dataformats/mtl/
+
+
+== Wings 3D
+
+https://www.wings3d.com/
+
+https://pages.mtu.edu/%7Eshene/COURSES/cs3621/NOTES/model/winged-e.html
+
+== Stash
+
+https://people.sc.fsu.edu/~jburkardt/data/obj/obj.html

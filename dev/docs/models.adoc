@@ -1,0 +1,10 @@
+= models
+
+
+== McGuire Computer Graphics Archive
+
+https://casual-effects.com/data/index.html
+
+https://casual-effects.com/g3d/data10/research/model/rungholt/rungholt.zip
+
+https://casual-effects.com/g3d/data10/research/model/powerplant/powerplant.zip

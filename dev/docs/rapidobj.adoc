@@ -1,0 +1,3 @@
+= rapidobj
+
+https://github.com/guybrush77/rapidobj
