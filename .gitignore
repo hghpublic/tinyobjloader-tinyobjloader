@@ -6,3 +6,6 @@ build/
 /python/tiny_obj_loader.h
 /tests/tester
 /tests/tester.dSYM
+
+# bootstrap-cmake-linux-with-pyhthon.sh
+/build_python_module/
