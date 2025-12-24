@@ -1,0 +1,117 @@
+= tinyobjloader
+:toc:
+:sectnums:
+ifndef::env-github[:icons: font]
+:note-caption: :paperclip:
+:important-caption: :exclamation:
+:warning-caption: :warning:
+
+== tinyobjloader
+
+https://github.com/tinyobjloader/tinyobjloader
+
+https://github.com/hghpublic/tinyobjloader-tinyobjloader
+
+
+== python
+
+[source, shell]
+----
+❯ find /usr/ -type d -name "pybind11"  
+/usr/lib/cmake/pybind11
+/usr/lib/python3/dist-packages/pybind11
+/usr/lib/python3/dist-packages/pybind11/share/cmake/pybind11
+/usr/lib/python3/dist-packages/pybind11/include/pybind11
+/usr/include/pybind11
+/usr/local/vcpkg/ports/pybind11
+----
+
+build using `bootstrap-cmake-linux-with-pyhthon.sh`::
++
+[source, shell]
+----
+./build-cmake-linux-with-pyhthon.sh
+----
+
+=== site — Site-specific configuration hook
+
+https://docs.python.org/3/library/site.html#site.getsitepackages
+
+globally installed packages::
++
+[source, shell]
+----
+❯ python3 -m site
+sys.path = [
+    '/workspaces/tinyobjloader-tinyobjloader',
+    '/usr/lib/python312.zip',
+    '/usr/lib/python3.12',
+    '/usr/lib/python3.12/lib-dynload',
+    '/usr/local/lib/python3.12/dist-packages',
+    '/usr/lib/python3/dist-packages',
+    '/usr/lib/python3.12/dist-packages',
+]
+USER_BASE: '/home/vscode/.local' (exists)
+USER_SITE: '/home/vscode/.local/lib/python3.12/site-packages' (doesn't exist)
+ENABLE_USER_SITE: True
+----
+
++
+[source, shell]
+----
+❯ python3 -c "import site; print(site.getsitepackages())"
+['/usr/local/lib/python3.12/dist-packages', '/usr/lib/python3/dist-packages', '/usr/lib/python3.12/dist-packages']
+----
+
++
+[source, shell]
+----
+❯ python3 -c "import sys; print(sys.path)"
+['', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload', '/usr/local/lib/python3.12/dist-packages', '/usr/lib/python3/dist-packages', '/usr/lib/python3.12/dist-packages']
+----
+
+locally installed packages::
++
+[source, shell]
+----
+❯ python3 -m site --user-site
+/home/vscode/.local/lib/python3.12/site-packages
+----
+
+using `pip` to show installed package info::
++
+[source, shell]
+----
+❯ python3 -m pip show pybind11
+WARNING: Skipping /usr/lib/python3.12/dist-packages/pybind11-2.11.1.dist-info due to invalid metadata entry 'name'
+Name: pybind11
+Version: 2.11.1
+Summary: Seamless operability between C++11 and Python
+Home-page: https://github.com/pybind/pybind11
+Author: Wenzel Jakob
+Author-email: wenzel.jakob@epfl.ch
+License: BSD
+Location: /usr/lib/python3/dist-packages
+Requires: 
+Required-by: 
+----
++
+[source, shell]
+----
+❯ python3 -m pip list | grep pybind
+WARNING: Skipping /usr/lib/python3.12/dist-packages/pybind11-2.11.1.dist-info due to invalid metadata entry 'name'
+pybind11        2.11.1
+----
+
++
+[source, shell]
+----
+❯ python3 -m pip freeze | grep pybind
+WARNING: Skipping /usr/lib/python3.12/dist-packages/pybind11-2.11.1.dist-info due to invalid metadata entry 'name'
+pybind11==2.11.1
+----
+
++
+[source, shell]
+----
+----
