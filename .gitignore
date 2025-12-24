@@ -9,3 +9,6 @@ build/
 
 # bootstrap-cmake-linux-with-pyhthon.sh
 /build_python_module/
+
+# macos
+.DS_Store
